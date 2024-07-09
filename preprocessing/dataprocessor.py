@@ -1,4 +1,5 @@
 import datetime
+from typing import List
 import pandas as pd
 import numpy as np
 
@@ -6,14 +7,14 @@ class DataProcessor:
     """
     A class used to process a dataset with various cleaning and preprocessing steps.
     """
-    def __init__(self):
+    def __init__(self) -> None :
         """
         Initializes the DataProcessor with data and DataFrame attributes set to None.
         """
         self.data = None
         self.df = None
         
-    def process(self) : 
+    def process(self)  -> None : 
         """
         Main method to execute all processing steps in sequence.
         """
@@ -30,17 +31,9 @@ class DataProcessor:
             print("Done!")
         except Exception as e:
             print(f"An error occurred during processing: {e}")
-        
-    def view(self) :
-        """
-        Prints the first few rows, columns, and descriptive statistics of the DataFrame.
-        """ 
-        print(self.df.head())
-        print(self.df.columns)
-        print(round(self.df.describe(), 2))
 
               
-    def read(self): 
+    def read(self)  -> None: 
         """
         Reads the dataset from a JSON file and initializes the DataFrame.
         """
@@ -53,7 +46,7 @@ class DataProcessor:
             print(f"An error occurred while reading the data: {e}")
         
         
-    def drop_useless(self) : 
+    def drop_useless(self)  -> None: 
         """
         Drops duplicate rows and unnecessary columns, and removes rows with null values in critical columns.
         """
@@ -64,7 +57,7 @@ class DataProcessor:
         exclude = ["PostalCode", "Price", "PropertyId", "TypeOfProperty", "TypeOfSale"]
         self.df.dropna(subset=exclude, inplace=True) # Drop rows where any of the exclude columns have null values
             
-    def fill_empty(self): 
+    def fill_empty(self)  -> None: 
         """
         Fills empty values in the DataFrame with appropriate default values.
         """
@@ -78,7 +71,7 @@ class DataProcessor:
         fill_values = {col: default['numeric'] if col in numeric_columns else default['string'] for col in self.df.columns}
         self.df.fillna(value=fill_values, inplace=True)
 
-    def check_coherence(self): 
+    def check_coherence(self)  -> None: 
         """
         Ensures data coherence by checking and adjusting certain columns' values.
         """
@@ -94,7 +87,7 @@ class DataProcessor:
         self.df = self.df.loc[(self.df['LivingArea'] >= 9) & (self.df['LivingArea'] <= 2000)]
 
 
-    def strip_blank(self): 
+    def strip_blank(self)  -> None: 
         """
         Strips leading and trailing whitespace from all string columns.
         """
@@ -102,8 +95,27 @@ class DataProcessor:
             # Check datatype for each column
             if self.df[i].dtype == "object": 
                 self.df[i] = self.df[i].map(str.strip)
+         
+    def get_summary_stats(self) -> pd.DataFrame:
+        """
+        Returns summary statistics of the DataFrame.
+        """
+        return self.df.describe()
                 
-    def save(self) : 
+    def get_data(self) -> pd.DataFrame : 
+        """
+        Returns the processed DataFrame.
+        """
+        return self.df
+    
+    def get_column(self) -> pd.Index  : 
+        """
+        Returns the processed DataFrame.
+        """
+        print(type(self.df.columns))
+        return self.df.columns
+                
+    def save(self)  -> None : 
         """
         Saves the processed DataFrame to a CSV file.
         """

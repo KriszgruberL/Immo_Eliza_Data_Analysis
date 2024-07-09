@@ -8,6 +8,11 @@ def main():
     processor = DataProcessor()
     processor.process()
 
+    print("********************")
+    print("********************")
+    print(processor.get_data().head())
+    print(processor.get_column())
+    print(processor.get_summary_stats())
 
 if __name__ == "__main__":
     main()
