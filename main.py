@@ -2,13 +2,12 @@ from preprocessing.dataprocessor import DataProcessor
 
 
 def main():
+    """
+    Main function to create an instance of DataProcessor and execute the processing steps.
+    """
     processor = DataProcessor()
-    processor.read()
-    processor.drop_useless()
-    processor.check_coherence()
-    processor.fill_empty()
-    processor.strip_blank()
-    processor.save()
+    processor.process()
+
 
 if __name__ == "__main__":
     main()
