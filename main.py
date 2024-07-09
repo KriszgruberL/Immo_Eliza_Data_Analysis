@@ -1,4 +1,4 @@
-from preprocessing.dataformat import Dataformat
+
 from preprocessing.dataprocessor import DataProcessor
 
 
@@ -6,15 +6,11 @@ def main():
     """
     Main function to create an instance of DataProcessor and execute the processing steps.
     """
-    data = "data/final_dataset.json"
-    p = DataProcessor(data)
-    
-    
+    data_path = "data/final_dataset.json"
+    p = DataProcessor(data_path)
     p.process()
-    
-    f = Dataformat(p.get_data())
-    f.strip_blank()
-    
+
+
     p.save()
 
     print(p.get_data().head())
