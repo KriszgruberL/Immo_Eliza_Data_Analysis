@@ -19,7 +19,6 @@ class CleanData:
         self.zip_path = zip_path
         self.save_path = save_path
         
-        
         self.data = None
         self.df = None
         

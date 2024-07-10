@@ -23,7 +23,6 @@ def main():
     # print(p.get_column())git 
     # print(p.get_summary_stats())
     
-    
 
 if __name__ == "__main__":
     main()
