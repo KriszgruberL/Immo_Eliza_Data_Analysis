@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def read_json_to_df(file_path: str) -> pd.DataFrame:
+def read_to_df(file_path: str, extension : str) -> pd.DataFrame:
     """
     Reads the dataset from a JSON file and initializes a DataFrame.
 
@@ -12,7 +12,13 @@ def read_json_to_df(file_path: str) -> pd.DataFrame:
     pd.DataFrame: The DataFrame containing the data from the JSON file.
     """
     try:
-        data = pd.read_json(file_path)
+        if extension == "csv" : 
+            data = pd.read_csv(file_path)
+        elif extension == "json" : 
+            data = pd.read_json(file_path) 
+        else : 
+            print("Wrong extension! Check again!")
+             
         df = pd.DataFrame(data)
         return df
     except FileNotFoundError as e:
