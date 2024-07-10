@@ -24,7 +24,6 @@ class DataFrameSplitter :
             "house_rent": 'TypeOfProperty == 1 and TypeOfSale == "residential_monthly_rent"',
             "apartment_sale": 'TypeOfProperty == 2 and TypeOfSale == "residential_sale"',
             "apartment_rent": 'TypeOfProperty == 2 and TypeOfSale == "residential_monthly_rent"',
-            "to_build": 'TypeOfSale == "homes_to_build"'
         }
 
         self.save_paths = {
@@ -32,7 +31,6 @@ class DataFrameSplitter :
             "house_rent": "data/house_rent.csv",
             "apartment_sale": "data/apartment_sale.csv",
             "apartment_rent": "data/apartment_rent.csv",
-            "to_build": "data/to_build.csv"
         }
 
     

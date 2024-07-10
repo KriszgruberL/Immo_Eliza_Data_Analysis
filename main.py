@@ -20,7 +20,7 @@ def main():
     splitter.split_and_save(p.get_data())
 
     # print(p.get_data().head())
-    # print(p.get_column())git 
+    # print(p.get_column())
     # print(p.get_summary_stats())
     
 

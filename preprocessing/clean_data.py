@@ -25,7 +25,7 @@ class CleanData:
         self.default_values = {"numeric": 0, "string": "null"}
         self.drop_columns = ["Country", "Fireplace"]
         self.exclude_columns = ["PostalCode", "Price", "PropertyId", "TypeOfProperty", "TypeOfSale"]
-        self.exclude_viager = ["annuity_monthly_amount", "annuity_without_lump_sum", "annuity_lump_sum"]
+        self.exclude_viager = ["annuity_monthly_amount", "annuity_without_lump_sum", "annuity_lump_sum", "homes_to_build"]
 
     def process(self) -> None:
         """
@@ -97,6 +97,7 @@ class CleanData:
 
         # List of columns where a missing value is not acceptable
         self.df.dropna(subset=self.exclude_columns, inplace=True)  # Drop rows where any of the exclude columns have null values
+        
 
         # Drop rows where TypeOfSale is in the exclude list
         self.df = self.df[~self.df["TypeOfSale"].isin(self.exclude_viager)]
