@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from utils.save_read import read_to_df
 
 
-class csv:
+class temp:
     def temp(self):
         df = read_to_df('data/clean_dataset.csv', 'csv')
         

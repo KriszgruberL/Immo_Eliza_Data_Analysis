@@ -1,4 +1,4 @@
-from visualization.geopandas import csv
+
 from preprocessing.df_splitter import DataFrameSplitter
 from preprocessing.clean_data import CleanData
 
@@ -22,9 +22,13 @@ def main():
     # print(p.get_data().head())
     print(p.get_column())
     # print(p.get_summary_stats())
-
+    
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     temp = csv()
     temp.temp()
     #main()
+=======
+    main()
+>>>>>>> parent of 723a5e1 (pouetpouet)
