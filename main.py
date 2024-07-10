@@ -1,6 +1,9 @@
 
+from preprocessing.categorical_to_num_dict import CategoricalNumDict
+from preprocessing.preprocessing import Preprocessing
 from preprocessing.df_splitter import DataFrameSplitter
 from preprocessing.clean_data import CleanData
+from utils.save_read import read_to_df
 
 
 
@@ -17,10 +20,18 @@ def main():
     
     
     splitter = DataFrameSplitter()
-    splitter.split_and_save(p.get_data())
+    # splitter.split_and_save(p.get_data())
+    
+    pre = Preprocessing()
+    dicts = CategoricalNumDict()
+    
+    pre.transform_categorical(p.get_data(), "PEB", dicts)
+    pre.transform_categorical(p.get_data(), "FloodingZone", dicts)
+    
+    # pre.transform(p.get_data())
 
     # print(p.get_data().head())
-    print(p.get_column())
+    # print(p.get_column())
     # print(p.get_summary_stats())
     
 
