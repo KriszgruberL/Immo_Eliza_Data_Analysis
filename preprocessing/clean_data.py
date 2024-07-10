@@ -3,7 +3,7 @@ from typing import Dict, List
 import pandas as pd
 import numpy as np
 
-from utils.save_read import read_json_to_df, save_df_to_csv
+from utils.save_read import read_to_df, save_df_to_csv
 
 
 class CleanData:
@@ -25,7 +25,7 @@ class CleanData:
         self.default_values = {"numeric": 0, "string": "null"}
         self.drop_columns = ["Country", "Fireplace"]
         self.exclude_columns = ["PostalCode", "Price", "PropertyId", "TypeOfProperty", "TypeOfSale"]
-        self.exclude_viager = ["annuity_monthly_amount", "annuity_without_lump_sum", "annuity_lump_sum", "homes_to_build"]
+        self.exclude_annuity = ["annuity_monthly_amount", "annuity_without_lump_sum", "annuity_lump_sum", "homes_to_build"]
 
     def process(self) -> None:
         """
@@ -33,7 +33,7 @@ class CleanData:
         """
 
         try:
-            self.df = read_json_to_df(self.data_path)
+            self.df = read_to_df(self.data_path, "json")
             if self.df is not None:
                 print("START: ", self.df.shape)
                 self.fill_empty()
@@ -97,10 +97,9 @@ class CleanData:
 
         # List of columns where a missing value is not acceptable
         self.df.dropna(subset=self.exclude_columns, inplace=True)  # Drop rows where any of the exclude columns have null values
-        
 
         # Drop rows where TypeOfSale is in the exclude list
-        self.df = self.df[~self.df["TypeOfSale"].isin(self.exclude_viager)]
+        self.df = self.df[~self.df["TypeOfSale"].isin(self.exclude_annuity)]
         self.check_drop_zip_code()
 
     def check_drop_zip_code(self) : 
@@ -127,7 +126,8 @@ class CleanData:
             ~((self.df["GardenArea"] > 0) & (self.df["Garden"] == 0)) &
             (self.df["ShowerCount"] < 30) &
             (self.df["ToiletCount"] < 50) &
-            (self.df["LivingArea"] >= 9) & (self.df["LivingArea"] <= 2000)
+            (self.df["LivingArea"] >= 9) & (self.df["LivingArea"] <= 2000 ) & 
+            ((self.df["NumberOfFacades"] == 0) | ((self.df["NumberOfFacades"] >= 2) & (self.df["NumberOfFacades"] <= 10)))
         ]
 
     def get_summary_stats(self) -> pd.DataFrame:
