@@ -23,7 +23,7 @@ class CleanData:
         self.df = None
         
         self.default_values = {"numeric": 0, "string": "null"}
-        self.drop_columns = ["Country", "Fireplace"]
+        self.drop_columns = ["Country", "Fireplace", "Locality"]
         self.exclude_columns = ["PostalCode", "Price", "PropertyId", "TypeOfProperty", "TypeOfSale"]
         self.exclude_annuity = ["annuity_monthly_amount", "annuity_without_lump_sum", "annuity_lump_sum", "homes_to_build"]
 
@@ -70,11 +70,11 @@ class CleanData:
             "Furnished",
             "Garden",
         ]
-
         fill_values = {
             col: self.default_values["numeric"] if col in numeric_columns else self.default_values["string"]
             for col in self.df.columns
         }
+        
         self.df.fillna(value=fill_values, inplace=True)
         
     def strip_blank(self)  -> None: 
@@ -119,7 +119,7 @@ class CleanData:
         """
         year_threshold = datetime.datetime.today().year + 10
 
-        # Keep rows where ConstructionYear is null or less than or equal to the year threshold
+        # Keep rows where the condition is true 
         self.df = self.df.loc[
             ((self.df["ConstructionYear"] == "null") | (self.df["ConstructionYear"] <= year_threshold)) &
             ~((self.df["GardenArea"] > 0) & (self.df["Garden"] == 0)) &
