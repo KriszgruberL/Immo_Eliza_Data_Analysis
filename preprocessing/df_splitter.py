@@ -25,9 +25,6 @@ class DataFrameSplitter :
             "apartment_sale": 'TypeOfProperty == 2 and TypeOfSale == "residential_sale"',
             "apartment_rent": 'TypeOfProperty == 2 and TypeOfSale == "residential_monthly_rent"',
             "apartment" : "TypeOfProperty == 2",
-            "house" : "TypeOfProperty == 1",
-            "sale" : 'TypeOfSale == "residential_sale"',
-            "rent" : 'TypeOfSale == "residential_monthly_rent"',
             
         }
 
@@ -37,9 +34,6 @@ class DataFrameSplitter :
             "apartment_sale": "data/apartment_sale.csv",
             "apartment_rent": "data/apartment_rent.csv",
             "apartment": "data/apartment.csv",
-            "house": "data/house.csv",
-            "sale": "data/sale.csv",
-            "rent": "data/rent.csv",
         }
 
     
