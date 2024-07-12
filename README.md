@@ -18,6 +18,9 @@
 
 This project focuses on preprocessing and visualizing real estate data for Belgium. It includes scripts for cleaning data, converting categorical data to numerical, splitting datasets, and creating various visualizations. The data includes average rent and sale prices by region, which are used to generate insights and correlations.
 
+## PowerPoint of all graphs 
+[Gray Black Simple Real Estate Presentation.pdf](https://github.com/user-attachments/files/16195980/Gray.Black.Simple.Real.Estate.Presentation.pdf)
+
 ## 🕺 Collaborator
 Thank you for your contributions to this project : 
 
@@ -27,6 +30,7 @@ Thank you for your contributions to this project :
 
 ## 🚧 Project Structure
 ```
+
 preprocessing-visualization/
 ├── .vscode/
 │   ├── settings.json
