@@ -88,7 +88,7 @@ preprocessing-visualization/
 ![Correlation Heatmap](data/visualization/correlation_heatmap.png)
 <br>
 <br>
-![Sale price by region and type](data\visualization\average_sale_price_by_region.png)
+![Sale price by region and type](data/visualization/average_sale_price_by_region_and_combined_type.png)
 
 ---
 
