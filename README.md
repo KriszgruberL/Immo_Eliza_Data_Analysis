@@ -47,8 +47,6 @@ preprocessing-visualization/
 │   ├── property.py
 │   └── scrapper.py
 ├── visualizations/
-│   ├── draft copy.ipynb
-│   ├── draft.ipynb
 │   └── vizualisations.py
 ├── main.py
 ├── README.md
