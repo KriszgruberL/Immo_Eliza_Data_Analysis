@@ -21,7 +21,7 @@ This project focuses on preprocessing and visualizing real estate data for Belgi
 ## PowerPoint of all graphs 
 [Gray Black Simple Real Estate Presentation.pdf](https://github.com/user-attachments/files/16195980/Gray.Black.Simple.Real.Estate.Presentation.pdf)
 
-## 🕺 Collaborator
+## 🕺 Collaborators
 Thank you for your contributions to this project : 
 
 - [servietsky0](https://github.com/servietsky0)
