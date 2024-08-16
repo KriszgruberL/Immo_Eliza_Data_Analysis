@@ -14,6 +14,14 @@
     <br>
 </p>
 
+## BeCode red line project - Immo_Eliza 2/4
+
+1. [Scrapping](https://github.com/KriszgruberL/Immo_Eliza)
+2. [Data Analysis](https://github.com/KriszgruberL/Immo_Eliza_Data_Analysis)
+3. [Preprocessing and Machine Learning](https://github.com/KriszgruberL/Immo_eliza_ML)
+4. [API and Deployment](https://github.com/KriszgruberL/Immo_Eliza_front)
+
+
 ## 📚 Overview
 
 This project focuses on preprocessing and visualizing real estate data for Belgium. It includes scripts for cleaning data, converting categorical data to numerical, splitting datasets, and creating various visualizations. The data includes average rent and sale prices by region, which are used to generate insights and correlations.
